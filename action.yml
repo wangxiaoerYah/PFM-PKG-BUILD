@@ -1,0 +1,27 @@
+# action.yml
+name: "PFM-Archbuild"
+author: "PFM"
+description: "PFM is PowerForMe. This workflow will compile Archlinux packages for PFM Mirror."
+inputs:
+  platform:
+    description: The platform (architecture) to build. Possible values are "linux/amd64" and "linux/arm64".
+    required: true
+    default: linux/amd64
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up QEMU
+      #if: ${{ matrix.arch != 'x86_64' }}
+      uses: docker/setup-qemu-action@v2
+    - name: Run docker
+      uses: docker://menci/archlinuxarm:base-devel
+      with:
+        platforms: ${{ inputs.platform }}
+    - name: Test
+      shell: bash
+      run: |
+      pwd && \
+      uname -a && \
+      ls -al
