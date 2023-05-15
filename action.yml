@@ -2,6 +2,9 @@
 name: "PFM-Archbuild"
 author: "PFM"
 description: "PFM is PowerForMe. This workflow will compile Archlinux packages for PFM Mirror."
+branding:
+  icon: package
+  color: blue
 inputs:
   platform:
     description: The platform (architecture) to build. Possible values are "linux/amd64" and "linux/arm64".
