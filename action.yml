@@ -1,5 +1,5 @@
 # action.yml
-name: "PFM-Archbuild"
+name: "PFM-PKG-BUILD"
 author: "PFM"
 description: "PFM is PowerForMe. This workflow will compile Archlinux packages for PFM Mirror."
 branding:
